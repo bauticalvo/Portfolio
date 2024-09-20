@@ -41,13 +41,7 @@ const Landing = () => {
           >
             <h2 className="text-5xl lg:text-6xl mb-6 font-bold leading-tight">Desarrollador FrontEnd</h2>
             <p className="text-xl mb-8 text-royalBlue/80">Creando experiencias digitales únicas y memorables</p>
-            <motion.button 
-              className="bg-[#F4976C] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-opacity-90 transition duration-300 shadow-lg"
-              whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(0,0,0,0.2)" }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Explora mis proyectos
-            </motion.button>
+
           </motion.section>
           
           <motion.section 
