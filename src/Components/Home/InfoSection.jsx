@@ -1,12 +1,9 @@
-import Ripple from "../magicui/ripple.tsx";
 
-const InfoSection =() => {
+
+const InfoSection =({scrollToTop}) => {
   return (
-    <div className="relative flex h-[500px] w-full flex-col items-center justify-center overflow-hidden rounded-lg border bg-secondary md:shadow-xl">
-      <p className="z-10 whitespace-pre-wrap text-center text-5xl font-medium tracking-tighter text-black">
-        Ripple
-      </p>
-      <Ripple />
+    <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden  bg-sand ">
+             
     </div>
   );
 }

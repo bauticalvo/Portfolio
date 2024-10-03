@@ -6,10 +6,12 @@ module.exports = {
   theme: {
      extend: {
       colors: {
-        primary: '#E8E4D9',   // Color principal
-        secondary: '#F4976C', // Color secundario
-        royalBlue: '#5370C6',// Color de fondo
-        slateViolet: '#8360E5',    // Color de acento
+        beige: '#F0EFD6',
+        sand: "#f2d1b3",
+        tiffany: "#B1DAC8",
+        turquoise: "#72C4B9",
+        payne: "#455A64",
+        persian: "#BF4341",
       },
       screens: {
         'xs': '480px',   // Celulares
