@@ -3,14 +3,17 @@ import Footer from "../Components/Home/Footer"
 import InfoSection from "../Components/Home/InfoSection"
 import LandingSection from "../Components/Home/LandingSection"
 import NavBar from "../Components/Home/NavBar"
-import ExperiencieSection from "../Components/Home/ExperiencieSection"
 import ContactSection from "../Components/Home/ContactSection"
 import Menu from "../Components/Home/Menu"
+import StackSection from "../Components/Home/StackSection"
+import { motion } from 'framer-motion';
 
 const Home = () => {
     const isConsoleLogged = useRef(false);
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(true); 
+
 
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -62,9 +65,26 @@ const Home = () => {
         }
     }, []);
 
+
+    useEffect(() => {
+      if (scrollPosition > 1700) {
+        setIsVisible(false); 
+      } else {
+        setIsVisible(true); 
+      }
+    }, [scrollPosition]);
+  
+
     return (
         <div className="no-scrollbar overflow-hidden" >
-            <NavBar isOpen={isOpen} setIsOpen={setIsOpen} />
+          <motion.div 
+          className="fixed z-20 top-0 left-0 w-full h-full"
+          initial={{ y: 0 }} 
+          animate={{ y: isVisible ? 0 : -200 }} 
+          transition={{ duration: 0.5 }} 
+          >
+            <NavBar isOpen={isOpen} setIsOpen={setIsOpen} scrollPosition={scrollPosition} />
+          </motion.div>
             {
               isOpen && (
                 <button
@@ -78,10 +98,10 @@ const Home = () => {
                 <LandingSection scrollToSection={scrollToSection}/>
             </div>
             <div id="infoSection">
-                <InfoSection scrollToTop={scrollToTop}  />
+                <InfoSection scrollPosition={scrollPosition}   />
             </div>
             <div id="experincieSection">
-                <ExperiencieSection  />
+                <StackSection scrollPosition={scrollPosition} />
             </div>
             <div id="contactSection">
                 <ContactSection  />
