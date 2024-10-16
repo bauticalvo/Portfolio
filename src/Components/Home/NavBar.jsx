@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 
-const NavBar = ({ isOpen, setIsOpen, scrollPosition }) => {
+const NavBar = ({ isOpen, setIsOpen }) => {
 
 
 
@@ -14,7 +14,7 @@ const NavBar = ({ isOpen, setIsOpen, scrollPosition }) => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <img src="/logoB5.png" alt="Logo de Bautista Calvo" className='h-32 ml-8' />
+              <img src="/logoB6.png" alt="Logo de Bautista Calvo" className='h-32 ml-8' />
             </motion.h1>
           </section>
           <motion.div
@@ -26,7 +26,7 @@ const NavBar = ({ isOpen, setIsOpen, scrollPosition }) => {
            >
                 <motion.button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="relative text-2xl font-black  text-persian flex flex-col justify-center items-end space-y-1"
+                    className="relative text-2xl font-black text-persian flex flex-col justify-center items-end space-y-1"
                 >
                     {/* Primera línea */}
                     <motion.div

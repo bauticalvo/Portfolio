@@ -7,11 +7,16 @@ module.exports = {
      extend: {
       colors: {
         beige: '#F0EFD6',
+        persian: "#862B2A",
         sand: "#f2d1b3",
+        sandContrast: "#1C2934",
         tiffany: "#B1DAC8",
         turquoise: "#72C4B9",
+        turContrast: "#1c0f38",
         payne: "#455A64",
-        persian: "#BF4341",
+      },
+      fontFamily: {
+        playfair: ['"Playfair Display"', 'serif'], 
       },
       screens: {
         'xs': '480px',   // Celulares
@@ -21,9 +26,8 @@ module.exports = {
         'xl': '1280px',  // Breakpoint existente
         '2xl': '1440px', // Breakpoint personalizado para pantallas más grandes
       },
-      animation: {
-      },
-      keyframes: {
+      boxShadow: {
+        "persianShadow": "0px 0px 10px rgba( 134, 43, 53, 0.5)",
       },
       utilities: {
         '.no-scrollbar::-webkit-scrollbar': {
@@ -36,6 +40,6 @@ module.exports = {
       },
     },
   },
-   plugins: [],
+  plugins: [],
 }
 

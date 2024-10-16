@@ -7,7 +7,7 @@ const LandingSection = ({scrollToSection}) => {
 
 
   return (
-    <div className="bg-beige text-payne font-sans min-h-screen overflow-x-hidden ">
+    <div className="bg-beige text-persian font-sans h-[95vh] overflow-hidden no-scrollbar ">
   
       <motion.div 
         className="relative  mt-16 "
@@ -22,14 +22,9 @@ const LandingSection = ({scrollToSection}) => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-5xl lg:text-6xl mb-6 font-bold leading-tight">Desarrollador FrontEnd</h2>
-            <p className="text-xl mb-8 text-royalBlue/80">Creando experiencias digitales únicas y memorables</p>
-            <button
-              className="bg-persian text-beige font-bold py-3 px-6 rounded-3xl"
-              onClick={() => scrollToSection("contactSection")}
-            >
-              AAA
-            </button>
+            <h2 className="text-5xl font-playfair lg:text-6xl mb-6 font-black leading-tight">Desarrollador FrontEnd</h2>
+            <p className="text-xl  font-playfair font-semibold mb-8 text-royalBlue/80">Creando experiencias digitales únicas y memorables</p>
+
 
           </motion.section>
           
@@ -40,20 +35,23 @@ const LandingSection = ({scrollToSection}) => {
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <motion.div 
-              className='w-[80%] lg:w-[70%]  relative'
+              className='w-[80%] lg:w-[70%]  relative '
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.3 }}
             >
-              <img 
+              <motion.img 
                 src="/jbc-photo.jpeg" 
-                alt="Juan Developer" 
-                className='h-[80%] w-[80%] object-cover  z-10 relative rounded-lg shadow-2xl'
+                alt="Juan Developer"
+                whileHover={{ scale: 1.02, boxShadow: '0 0 10px rgba( 116, 125, 132, 0.9)' }} 
+                transition={{ duration: 0.3 }}
+                className='h-[80%] w-[80%] object-cover  z-[5] relative rounded-lg shadow-persianShadow  '
               /> 
               <motion.div 
-                className='absolute -bottom-10 right-14 border-2 border-persian h-full w-[80%]  rounded-lg'
+                className='absolute -bottom-10 right-14 border-[3px] border-persian h-full w-[80%] shadow-persianShadow  rounded-lg'
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5, delay: 0.8 }}
+                whileHover={{ scale: 1.02,boxShadow: '0 0 10px rgba( 134, 43, 53, 0.9)' }}
               ></motion.div>
             </motion.div>
           </motion.section>
@@ -61,7 +59,7 @@ const LandingSection = ({scrollToSection}) => {
       </motion.div>
       <motion.section>
           <motion.div 
-          className='absolute bottom-20 left-1/2 transform  -translate-x-1/2   w-12 h-12 hidden md:block '
+          className='absolute bottom-32 left-1/2 transform  -translate-x-1/2   w-12 h-12 hidden md:block '
           initial={{ y: 50, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 1 }}

@@ -1,18 +1,104 @@
+import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
+import { useState } from 'react';
+
+const technologies = [
+  'React', 'JavaScript', 'Node.js', 'Tailwind CSS', 'Redux',
+  'Zustand', 'Git', 'RESTful APIs', 'MongoDB', 'Express.js'
+];
 
 
 const InfoSection =({scrollPosition}) => {
+  const [ num, setNum ] = useState(0);
+
+  const { scrollYProgress } = useScroll();
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    console.log(latest);
+    setNum(latest)
+  })
+
+  const opacityRange = useTransform(scrollYProgress, [0.15, 0.19], [0, 1]);
+  const opacity = useSpring(opacityRange, { stiffness: 400, damping: 90 });
+
+  const opacityRange2 = useTransform(scrollYProgress, [0.15, 0.19], [0, 1]);
+  const opacity2 = useSpring(opacityRange2, { stiffness: 400, damping: 90 });
+
+
+  const scaleRange = useTransform(scrollYProgress, [0.15, 0.19], [0, 1]);
+  const scale = useSpring(scaleRange, { stiffness: 400, damping: 90 });
+
+
+
+
+  
+  
   return (
-    <div className="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden  bg-sand ">
-          {scrollPosition > 1000 && (
-            <div><p>infoSection</p>
-            <p>infoSection</p>
-            <p>infoSection</p>
-            <p>infoSection</p>
-            <p>infoSection</p>
-            <p>infoSection</p></div>
-          )}
-    </div>
+    <div className="min-h-screen bg-sand text-sandContrast font-playfair gap-32 px-20 flex items-center justify-center">
+      <section className="flex flex-col md:flex-row gap-12 w-1/2">
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.h1 
+            className="text-4xl md:text-5xl font-extrabold mb-8 text-left"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            Desarrollador FrontEnd {num}
+          </motion.h1>
+          <div className="space-y-6 text-lg leading-relaxed">
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              style={{ opacity }}
+            >
+              Como Desarrollador Full Stack, me especializo en crear aplicaciones web robustas y escalables. Manejo tanto tecnologías de front-end como de back-end, lo que me permite construir soluciones completas desde cero. Me apasiona escribir código limpio y eficiente, y siempre pongo al usuario en el centro de mis diseños.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              style={{ opacity }}
+
+            >
+              Mi objetivo es crear experiencias digitales que no solo cumplan, sino que superen las expectativas de los clientes. Además, disfruto del proceso de aprendizaje constante y de enfrentar nuevos desafíos que me permiten mejorar y adaptar mis habilidades a las necesidades cambiantes del desarrollo web.
+            </motion.p>
+          </div>
+        </motion.div>
+        
+      </section>
+      <section className='w-1/2'>
+        <motion.div 
+          className="w-2/3 "
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <motion.div className={`bg-sandContrast text-sand p-6 rounded-lg shadow-lg `}
+            style={{ opacity: opacity2, scale }}
+          >
+            <h2 className="text-2xl font-bold mb-6 text-center">Mi Stack Tecnológico</h2>
+            <div className="flex flex-wrap justify-center gap-3">
+              { num > 0.15 && technologies.map((tech, index) => (
+                <motion.span 
+                  key={tech}
+                  className="bg-sand text-sandContrast py-2 px-4 rounded-full text-sm font-semibold"
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                >
+                  {tech}
+                </motion.span>
+              ))}
+            </div>
+          </motion.div>
+        </motion.div>
+        </section>
+  </div>
   );
-}
+};
+
 
 export default InfoSection

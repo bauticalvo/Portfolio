@@ -34,7 +34,6 @@ const Home = () => {
         });
       };
 
-      console.log(scrollPosition);
       
 
       useEffect(() => {
@@ -76,20 +75,20 @@ const Home = () => {
   
 
     return (
-        <div className="no-scrollbar overflow-hidden" >
+        <div className="overflow-hidden no-scrollbar" >
           <motion.div 
-          className="fixed z-20 top-0 left-0 w-full h-full"
+          className="fixed z-20 top-0 left-0 w-full h-1/4"
           initial={{ y: 0 }} 
           animate={{ y: isVisible ? 0 : -200 }} 
           transition={{ duration: 0.5 }} 
           >
-            <NavBar isOpen={isOpen} setIsOpen={setIsOpen} scrollPosition={scrollPosition} />
+            <NavBar isOpen={isOpen} setIsOpen={setIsOpen}  />
           </motion.div>
             {
               isOpen && (
                 <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="fixed z-20 top-0 left-0 w-full h-full ">
+                className="fixed z-10 top-0 left-0 w-full h-full ">
                   <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
                 </button>
               )
