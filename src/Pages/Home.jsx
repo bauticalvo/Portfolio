@@ -97,7 +97,7 @@ const Home = () => {
                 <LandingSection scrollToSection={scrollToSection}/>
             </div>
             <div id="infoSection">
-                <InfoSection scrollPosition={scrollPosition}   />
+                <InfoSection />
             </div>
             <div id="experincieSection">
                 <StackSection scrollPosition={scrollPosition} />
