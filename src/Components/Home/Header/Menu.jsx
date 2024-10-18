@@ -1,6 +1,14 @@
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import LanguageSlider from './LanguageSlider';
 
 const Menu = ({ isOpen, setIsOpen }) => {
+
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
     return (
         <motion.button
@@ -20,6 +28,13 @@ const Menu = ({ isOpen, setIsOpen }) => {
                 <p>Menú desplegable</p>
                 <p>Menú desplegable</p>
                 <p>Menú desplegable</p>
+            
+            <motion.button
+                onClick={() => changeLanguage('en')}
+            >
+                <p>Cambiar idioma</p>
+            </motion.button>
+            <LanguageSlider />
 
             </motion.div>
           </motion.div>

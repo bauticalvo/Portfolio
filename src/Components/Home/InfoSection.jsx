@@ -24,7 +24,7 @@ const InfoSection =() => {
 
   const { scrollYProgress } = useScroll();
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
-    console.log(latest);
+    //console.log(latest);
     setNum(latest)
   })
 

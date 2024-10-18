@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react"
-import Footer from "../Components/Home/Footer"
+import Footer from "../Components/Home/Footer/Footer"
 import InfoSection from "../Components/Home/InfoSection"
 import LandingSection from "../Components/Home/LandingSection"
-import NavBar from "../Components/Home/NavBar"
+import NavBar from "../Components/Home/Header/NavBar"
 import ContactSection from "../Components/Home/ContactSection"
-import Menu from "../Components/Home/Menu"
+import Menu from "../Components/Home/Header/Menu"
 import StackSection from "../Components/Home/StackSection"
 import { motion } from 'framer-motion';
 
@@ -13,7 +13,15 @@ const Home = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(true); 
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 800);
 
+    useEffect(() => {
+      const handleResize = () => {
+        setIsLargeScreen(window.innerWidth > 800)
+      }
+      window.addEventListener('resize', handleResize)
+      return () => window.removeEventListener('resize', handleResize)
+    }, [])
 
     const scrollToTop = () => {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -94,7 +102,7 @@ const Home = () => {
               )
             }
             <div id="landing">
-                <LandingSection scrollToSection={scrollToSection}/>
+                <LandingSection isLargeScreen={isLargeScreen}/>
             </div>
             <div id="infoSection">
                 <InfoSection />

@@ -1,0 +1,16 @@
+{
+    "landing": {
+      "title": "Desarrollador Frontend",
+      "description0": "Creando experiencias digitales únicas y memorables",
+      "description1":  "Transformando ideas en interfaces intuitivas y atractivas",
+      "description2": "Desarrollando soluciones web innovadoras y eficientes"
+    },
+    "menu": {
+
+    },
+    "languageSlider": {
+        "es": "Español",
+        "en": "Ingles"
+    }
+  }
+  
