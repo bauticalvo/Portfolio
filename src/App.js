@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './Pages/Home';
-import Profile from './Components/Profile/Profile';
+import Profile from './Pages/Profile';
 import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 

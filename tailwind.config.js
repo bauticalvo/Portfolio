@@ -19,12 +19,10 @@ module.exports = {
         playfair: ['"Playfair Display"', 'serif'], 
       },
       screens: {
-        'xs': '480px',   // Celulares
-        'sm': '640px',   // Breakpoint existente de Tailwind (puedes sobrescribirlo)
+        'xs': '380px',   // Celulares
         'md': '768px',   // Breakpoint existente
-        'lg': '1024px',  // Breakpoint existente
-        'xl': '1280px',  // Breakpoint existente
-        '2xl': '1440px', // Breakpoint personalizado para pantallas más grandes
+        'lg': '1440px',  // Breakpoint existente
+        'xl': '1920px',  // Breakpoint existente
       },
       boxShadow: {
         "persianShadow": "0px 0px 10px rgba( 134, 43, 53, 0.5)",

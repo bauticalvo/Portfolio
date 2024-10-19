@@ -23,9 +23,6 @@ const Home = () => {
       return () => window.removeEventListener('resize', handleResize)
     }, [])
 
-    const scrollToTop = () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    };
     const scrollToSection = (sectionId) => {
         var section = document.getElementById(sectionId);
         if (section) {
@@ -74,7 +71,7 @@ const Home = () => {
 
 
     useEffect(() => {
-      if (scrollPosition > 1700 && !isOpen) {
+      if (scrollPosition > 1600 && scrollPosition < 3000 && !isOpen) {
         setIsVisible(false); 
       } else {
         setIsVisible(true); 
@@ -94,7 +91,7 @@ const Home = () => {
           </motion.div>
             {
               isOpen && (
-                   <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
+                   <Menu isOpen={isOpen} setIsOpen={setIsOpen} scrollToSection={scrollToSection}/>
               )
             }
             <div id="landing">
@@ -110,7 +107,7 @@ const Home = () => {
                 <ContactSection  />
             </div>
             <div className="bg-turquoise">
-                <Footer scrollToSection={scrollToSection} scrollToTop={scrollToTop} />
+                <Footer scrollToSection={scrollToSection}  />
             </div>
         </div>
     )

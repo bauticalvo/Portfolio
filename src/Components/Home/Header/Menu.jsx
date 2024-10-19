@@ -2,14 +2,20 @@ import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import LanguageSlider from './LanguageSlider';
 import { useNavigate } from 'react-router-dom';
-import { FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope  } from 'react-icons/fa';
 
 
-const Menu = ({ isOpen, setIsOpen }) => {
+const Menu = ({ isOpen, setIsOpen, scrollToSection }) => {
 
   const navigate = useNavigate();
-
   const { t } = useTranslation();
+
+
+  const handleMail = ()=>{
+    scrollToSection("contactSection")
+    setIsOpen(false)
+  }
+
     return (
           <motion.div   
             className={`fixed z-[50] w-full h-full bg-persian p-4 shadow-lg flex flex-col justify-center items-center text-beige  font-playfair space-y-8
@@ -53,6 +59,13 @@ const Menu = ({ isOpen, setIsOpen }) => {
                 whileTap={{ scale: 0.9 }}
               >
                 <FaInstagram className="text-3xl" />
+              </motion.a>
+              <motion.a
+                onClick={ ()=> handleMail()}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+              >
+                <FaEnvelope  className="text-3xl" />
               </motion.a>
             </motion.section>
           </motion.div>

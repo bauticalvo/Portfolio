@@ -5,7 +5,7 @@ import { SiTailwindcss, SiMongodb, SiExpress, SiPostgresql  } from 'react-icons/
 
 const technologies = [
   'JavaScript', 'Typescript','React','React Native',  'Tailwind CSS', 'Redux',
-  'Zustand', 'Node.js', 'Express.js','MongoDB', 'PostgreSQL','Git',  'Responsive Design', 'RESTful APIs', 
+  'Zustand', 'Node.js', 'Express.js','MongoDB', 'PostgreSQL','Git',  'Responsive Design', 'RESTful APIs', 'SCRUM'
 ];
 
 const icons = [
@@ -84,7 +84,7 @@ const InfoSection =() => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <motion.div className={`bg-sandContrast text-sand p-6 rounded-lg shadow-lg `}
+          <motion.div className={`bg-sandContrast text-sand p-6 rounded-lg shadow-lg space-y-6 `}
             style={{ opacity: opacity2, scale }}
           >
             <h2 className="text-2xl font-bold mb-6 text-center">Mi Stack Tecnológico</h2>
