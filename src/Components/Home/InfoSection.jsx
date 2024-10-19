@@ -1,5 +1,6 @@
 import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { FaReact, FaJs, FaNodeJs, FaGitAlt } from 'react-icons/fa';
 import { SiTailwindcss, SiMongodb, SiExpress, SiPostgresql  } from 'react-icons/si';
 
@@ -21,8 +22,9 @@ const icons = [
 
 const InfoSection =() => {
   const [ num, setNum ] = useState(0);
-
+  const { t } = useTranslation();
   const { scrollYProgress } = useScroll();
+
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
     //console.log(latest);
     setNum(latest)
@@ -53,7 +55,7 @@ const InfoSection =() => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            Sobre mi
+            {t('infosection.title')}
           </motion.h1>
           <div className="space-y-6 text-lg leading-relaxed">
             <motion.p
@@ -62,7 +64,7 @@ const InfoSection =() => {
               transition={{ duration: 0.5, delay: 0.2 }}
               style={{ opacity }}
             >
-              Como Desarrollador Full Stack, me especializo en crear aplicaciones web robustas y escalables. Manejo tanto tecnologías de front-end como de back-end, lo que me permite construir soluciones completas desde cero. Me apasiona escribir código limpio y eficiente, y siempre pongo al usuario en el centro de mis diseños.
+            {t('infosection.description1')}
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -71,7 +73,7 @@ const InfoSection =() => {
               style={{ opacity }}
 
             >
-              Mi objetivo es crear experiencias digitales que no solo cumplan, sino que superen las expectativas de los clientes. Además, disfruto del proceso de aprendizaje constante y de enfrentar nuevos desafíos que me permiten mejorar y adaptar mis habilidades a las necesidades cambiantes del desarrollo web.
+              {t('infosection.description2')}
             </motion.p>
           </div>
         </motion.div>
@@ -87,7 +89,7 @@ const InfoSection =() => {
           <motion.div className={`bg-sandContrast text-sand p-6 rounded-lg shadow-lg space-y-6 `}
             style={{ opacity: opacity2, scale }}
           >
-            <h2 className="text-2xl font-bold mb-6 text-center">Mi Stack Tecnológico</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">{t('infosection.stack')}</h2>
             <div className="flex flex-wrap justify-center gap-3">
               { num > 0.15 && technologies.slice(0, 12).map((tech, index) => (
                 <motion.span 
@@ -101,7 +103,7 @@ const InfoSection =() => {
                 </motion.span>
               ))}
             </div>
-            <h2 className="text-2xl font-bold mb-6 text-center">Otros</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">{t('infosection.others')}</h2>
             <div className="flex flex-wrap justify-center gap-3">
               { num > 0.15 && technologies.slice(12).map((tech, index) => (
                 <motion.span 

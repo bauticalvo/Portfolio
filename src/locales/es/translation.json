@@ -12,6 +12,13 @@
     "languageSlider": {
         "es": "Español",
         "en": "Ingles"
+    },
+    "infosection": {
+      "title": "Sobre mi",
+      "description1": "Como desarrollador front-end, me especializo en crear aplicaciones web robustas y escalables. Si bien mi orientacion es hacia el front-end, tengo conocimientos en tecnologias de back-end, lo que me permite construir soluciones completas desde cero.",
+      "description2": "Me apasiona crear interfaces unicas y atractivas que destaquen mis habilidades y me permitan superar mis expectativas.Además, disfruto del proceso de aprendizaje constante y de enfrentar nuevos desafíos que me permiten mejorar y adaptar mis habilidades a las necesidades cambiantes del desarrollo web.",
+      "stack": "Mi Stack Tecnológico",
+      "others": "Otros"
     }
   }
   
