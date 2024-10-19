@@ -30,11 +30,13 @@ useEffect(() => {
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <h2 className="text-5xl font-playfair lg:text-7xl mb-6 font-black leading-tight">{t('landing.title')}</h2>
+            <h2 className="text-5xl font-playfair  mb-6 font-black leading-tight 
+            xl:text-7xl xs:text-4xl xs:text-[42px] md:text-6xl lg:text-6xl
+            ">{t('landing.title')}</h2>
             <AnimatePresence mode="wait">
             <motion.p
               key={currentDescription}
-               className="text-xl  font-playfair font-semibold mb-8 text-royalBlue/80"
+               className="font-playfair font-semibold mb-8 text-royalBlue/80 md:text-xl xs:md xs:px-10 lg-xl:text-xl "
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}

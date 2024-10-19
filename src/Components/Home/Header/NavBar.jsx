@@ -14,13 +14,15 @@ const NavBar = ({ isOpen, setIsOpen }) => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <img src="/logoB6.png" alt="Logo de Bautista Calvo" className={`${isOpen ? 'hidden ' : ''}h-32 ml-8
-              xs:h-20 xs:ml-0
+              <img src="/logoB6.png" alt="Logo de Bautista Calvo" className={`${isOpen ? 'hidden ' : ''}h-28 ml-8
+              xs:h-20 xs:ml-0 
               `} />
             </motion.h1>
           </section>
           <motion.div
-           className="absolute top-14 right-12 h-5 p-2 m-2 z-[60]"
+           className="absolute top-14 right-12 h-5 p-2 m-2 z-[60]
+           xs:top-10 xs:right-8 
+           "
            initial={{ y: -100, opacity: 0 }}
            animate={{ y: 0, opacity: 1 }}
            transition={{ duration: 0.8 }
