@@ -74,31 +74,27 @@ const Home = () => {
 
 
     useEffect(() => {
-      if (scrollPosition > 1700) {
+      if (scrollPosition > 1700 && !isOpen) {
         setIsVisible(false); 
       } else {
         setIsVisible(true); 
       }
-    }, [scrollPosition]);
+    }, [scrollPosition, isOpen]);
   
 
     return (
         <div className="overflow-hidden no-scrollbar" >
           <motion.div 
-          className="fixed z-20 top-0 left-0 w-full h-1/4"
+          className={`fixed  top-0 left-0 w-full h-1/4 ${isOpen ? 'z-[60]' : 'z-20'}`}
           initial={{ y: 0 }} 
           animate={{ y: isVisible ? 0 : -200 }} 
           transition={{ duration: 0.5 }} 
           >
-            <NavBar isOpen={isOpen} setIsOpen={setIsOpen}  />
+            <NavBar isOpen={isOpen} setIsOpen={setIsOpen} className={`${isOpen ? '' : 'z-20'}`}  />
           </motion.div>
             {
               isOpen && (
-                <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="fixed z-10 top-0 left-0 w-full h-full ">
-                  <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
-                </button>
+                   <Menu isOpen={isOpen} setIsOpen={setIsOpen} />
               )
             }
             <div id="landing">

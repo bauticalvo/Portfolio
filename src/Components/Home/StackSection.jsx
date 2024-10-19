@@ -1,6 +1,6 @@
 import {  useRef } from "react";
 import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
-
+import { MdArrowRightAlt } from "react-icons/md";
 
 const StackSection = ({scrollPosition}) => {
   const containerRef = useRef(null);
@@ -115,11 +115,14 @@ const StackSection = ({scrollPosition}) => {
           }}
           >
           <h2 className="text-5xl text-turContrast  font-playfair lg:text-6xl mb-6 font-black leading-tight">Desarrollador FrontEnd</h2>
-          <button
-          className="bg-persian text-beige font-bold py-3 px-6 rounded-3xl"
+          <motion.button
+          whileHover={{ backgroundColor: '#1c0f38', color: "#72C4B9" }}
+          whileTap={{ scale: 0.9 }}
+          className="bg-transparent border border-turContrast text-turContrast font-bold py-3 px-16  flex justify-center items-center gap-4"
           >
-          Proyectos
-        </button></motion.div>
+          Proyectos <MdArrowRightAlt size={20}/>
+        </motion.button>
+        </motion.div>
           </div>
         </motion.div>
       </motion.div>

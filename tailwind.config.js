@@ -7,7 +7,7 @@ module.exports = {
      extend: {
       colors: {
         beige: '#F0EFD6',
-        persian: "#862B2A",
+        persian: "#8b1e3f",
         sand: "#f2d1b3",
         sandContrast: "#1C2934",
         tiffany: "#B1DAC8",

@@ -6,7 +6,8 @@
         "description2": "Developing innovative and efficient web solutions"
     },
     "menu": {
-
+        "profile": "Profile",
+        "proyects": "Proyects"
     },
     "languageSlider": {
         "es": "Spanish",

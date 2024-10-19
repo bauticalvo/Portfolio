@@ -5,7 +5,7 @@ import { SiTailwindcss, SiMongodb, SiExpress, SiPostgresql  } from 'react-icons/
 
 const technologies = [
   'JavaScript', 'Typescript','React','React Native',  'Tailwind CSS', 'Redux',
-  'Zustand', 'Node.js', 'Express.js','MongoDB', 'PostgreSQL', 'Responsive Design', 'Git', 'RESTful APIs', 
+  'Zustand', 'Node.js', 'Express.js','MongoDB', 'PostgreSQL','Git',  'Responsive Design', 'RESTful APIs', 
 ];
 
 const icons = [
@@ -89,7 +89,7 @@ const InfoSection =() => {
           >
             <h2 className="text-2xl font-bold mb-6 text-center">Mi Stack Tecnológico</h2>
             <div className="flex flex-wrap justify-center gap-3">
-              { num > 0.15 && technologies.slice(0, 11).map((tech, index) => (
+              { num > 0.15 && technologies.slice(0, 12).map((tech, index) => (
                 <motion.span 
                   key={tech}
                   className="bg-sand text-sandContrast py-2 px-4 rounded-full text-sm font-semibold"
@@ -101,9 +101,9 @@ const InfoSection =() => {
                 </motion.span>
               ))}
             </div>
-            <h2 className="text-2xl font-bold mb-6 text-center">Otras Tecnologías</h2>
+            <h2 className="text-2xl font-bold mb-6 text-center">Otros</h2>
             <div className="flex flex-wrap justify-center gap-3">
-              { num > 0.15 && technologies.slice(11).map((tech, index) => (
+              { num > 0.15 && technologies.slice(12).map((tech, index) => (
                 <motion.span 
                   key={tech}
                   className="bg-sand text-sandContrast py-2 px-4 rounded-full text-sm font-semibold"

@@ -21,4 +21,12 @@ i18n
     },
   });
 
+  export const detectarIdiomaNavegador = () => {
+    const idiomaNavegador = navigator.language.split('-')[0]; 
+    const idiomaSoportado = ['es', 'en'].includes(idiomaNavegador) ? idiomaNavegador : 'en';
+    i18n.changeLanguage(idiomaSoportado);
+    localStorage.setItem("language", idiomaSoportado);
+
+  };
+
 export default i18n;
