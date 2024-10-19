@@ -19,10 +19,12 @@ module.exports = {
         playfair: ['"Playfair Display"', 'serif'], 
       },
       screens: {
-        'xs': '380px',   // Celulares
-        'md': '768px',   // Breakpoint existente
-        'lg': '1440px',  // Breakpoint existente
-        'xl': '1920px',  // Breakpoint existente
+        'xs': { 'min': '380px', 'max': '767px' },
+        'md': { 'min': '768px', 'max': '1279px' },
+        'xs-md': { 'min': '380px', 'max': '1279px' },
+        'lg': { 'min': '1280px', 'max': '1919px' },
+        'xl': '1920px',
+        'lg-xl': '1280px',
       },
       boxShadow: {
         "persianShadow": "0px 0px 10px rgba( 134, 43, 53, 0.5)",

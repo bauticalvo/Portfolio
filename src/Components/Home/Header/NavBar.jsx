@@ -14,7 +14,9 @@ const NavBar = ({ isOpen, setIsOpen }) => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8 }}
             >
-              <img src="/logoB6.png" alt="Logo de Bautista Calvo" className={`${isOpen ? 'hidden ' : ''}h-32 ml-8`} />
+              <img src="/logoB6.png" alt="Logo de Bautista Calvo" className={`${isOpen ? 'hidden ' : ''}h-32 ml-8
+              xs:h-20 xs:ml-0
+              `} />
             </motion.h1>
           </section>
           <motion.div

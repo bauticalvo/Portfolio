@@ -13,11 +13,11 @@ const Home = () => {
     const [scrollPosition, setScrollPosition] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
     const [isVisible, setIsVisible] = useState(true); 
-    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 800);
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1280);
 
     useEffect(() => {
       const handleResize = () => {
-        setIsLargeScreen(window.innerWidth > 800)
+        setIsLargeScreen(window.innerWidth > 1280)
       }
       window.addEventListener('resize', handleResize)
       return () => window.removeEventListener('resize', handleResize)
@@ -71,7 +71,16 @@ const Home = () => {
 
 
     useEffect(() => {
-      if (scrollPosition > 1600 && scrollPosition < 3000 && !isOpen) {
+      var firstSize = 1600
+      var secondSize = 3000
+      if(window.innerWidth >= 768 && window.innerWidth < 1280){
+        firstSize = 1900
+        secondSize = 3500
+      } else if(window.innerWidth >= 1280 && window.innerWidth < 1920){
+        firstSize = 1300
+        secondSize = 2500
+      } 
+      if (scrollPosition > firstSize && scrollPosition < secondSize && !isOpen) {
         setIsVisible(false); 
       } else {
         setIsVisible(true); 
