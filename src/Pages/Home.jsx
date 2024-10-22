@@ -112,7 +112,12 @@ const Home = () => {
           animate={{ y: isVisible ? 0 : -200 }} 
           transition={{ duration: 0.5 }} 
           >
-            <NavBar isOpen={isOpen} setIsOpen={setIsOpen} className={`${isOpen ? '' : 'z-20'}`}  />
+            <NavBar isOpen={isOpen} setIsOpen={setIsOpen} className={`${isOpen ? '' : 'z-20'}`} 
+            isSmallScreen={isSmallScreen} 
+            isMediumScreen={isMediumScreen}
+            isLargeScreen={isLargeScreen}
+            isExtralargeScreen={isExtralargeScreen}
+            />
           </motion.div>
             {
               isOpen && (
