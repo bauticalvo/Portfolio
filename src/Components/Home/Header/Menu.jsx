@@ -1,14 +1,12 @@
 import { motion } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 import LanguageSlider from './LanguageSlider';
 import { useNavigate } from 'react-router-dom';
 import { FaGithub, FaLinkedin, FaInstagram, FaEnvelope  } from 'react-icons/fa';
 
 
-const Menu = ({ isOpen, setIsOpen, scrollToSection }) => {
+const Menu = ({ isOpen, setIsOpen, scrollToSection, t }) => {
 
   const navigate = useNavigate();
-  const { t } = useTranslation();
 
 
   const handleMail = ()=>{

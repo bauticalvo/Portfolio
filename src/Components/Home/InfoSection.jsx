@@ -1,6 +1,5 @@
 import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
 import { useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { FaReact, FaJs, FaNodeJs, FaGitAlt } from 'react-icons/fa';
 import { SiTailwindcss, SiMongodb, SiExpress, SiPostgresql  } from 'react-icons/si';
 
@@ -20,9 +19,8 @@ const icons = [
   { name: 'Express', icon: SiExpress, x: 90, y: 60, animation: { x: [0, -100], scale: [1, 1.4, 1] } }
 ];
 
-const InfoSection =() => {
+const InfoSection =({t,isSmallScreen}) => {
   const [ num, setNum ] = useState(0);
-  const { t } = useTranslation();
   const { scrollYProgress } = useScroll();
 
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
@@ -30,20 +28,21 @@ const InfoSection =() => {
     setNum(latest)
   })
 
-  const opacityRange = useTransform(scrollYProgress, [0.15, 0.19], [0, 1]);
+  const opacityRange = useTransform(scrollYProgress,  !isSmallScreen ? [0.15, 0.19] : [0.14, 0.18], [0, 1]);
   const opacity = useSpring(opacityRange, { stiffness: 400, damping: 90 });
 
-  const opacityRange2 = useTransform(scrollYProgress, [0.15, 0.19], [0, 1]);
+  const opacityRange2 = useTransform(scrollYProgress, !isSmallScreen ? [0.15, 0.19] : [0.20, 0.22], [0, 1]);
   const opacity2 = useSpring(opacityRange2, { stiffness: 400, damping: 90 });
 
 
-  const scaleRange = useTransform(scrollYProgress, [0.15, 0.19], [0, 1]);
-  const scale = useSpring(scaleRange, { stiffness: 400, damping: 90 });
-
   
   return (
-    <div className="min-h-screen bg-sand relative text-sandContrast font-playfair gap-32 px-20 flex items-center justify-center">
-      <section className="flex flex-col md:flex-row px-4 gap-4 w-1/2 z-10">
+    <div className="min-h-screen bg-sand relative text-sandContrast font-playfair gap-32 px-20 flex items-center justify-center
+    xs-md:flex-col xs:px-0 
+    ">
+      <section className="flex flex-col  px-4 gap-4 w-1/2 z-10
+      xs:px-6 xs-md:mt-32 xs-md:w-full 
+      ">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -79,7 +78,9 @@ const InfoSection =() => {
         </motion.div>
         
       </section>
-      <section className='w-1/3 flex z-10 justify-center'>
+      <section className='w-1/3 flex z-10 justify-center 
+      xs-md:w-[90%] xs:mb-14
+      '>
         <motion.div 
           className="w-[100%]  "
           initial={{ opacity: 0, x: 20 }}
@@ -87,7 +88,7 @@ const InfoSection =() => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <motion.div className={`bg-sandContrast text-sand p-6 rounded-lg shadow-lg space-y-6 `}
-            style={{ opacity: opacity2, scale }}
+            style={{ opacity: opacity2, scale: opacity2 }}
           >
             <h2 className="text-2xl font-bold mb-6 text-center">{t('infosection.stack')}</h2>
             <div className="flex flex-wrap justify-center gap-3">

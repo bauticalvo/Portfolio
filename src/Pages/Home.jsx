@@ -6,47 +6,60 @@ import NavBar from "../Components/Home/Header/NavBar"
 import ContactSection from "../Components/Home/ContactSection"
 import Menu from "../Components/Home/Header/Menu"
 import StackSection from "../Components/Home/StackSection"
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import { t } from "i18next"
 
 const Home = () => {
-    const isConsoleLogged = useRef(false);
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [isOpen, setIsOpen] = useState(false);
-    const [isVisible, setIsVisible] = useState(true); 
-    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1280);
+    const isConsoleLogged = useRef(false)
+    const [scrollPosition, setScrollPosition] = useState(0)
+    const [isOpen, setIsOpen] = useState(false)
+    const [isVisible, setIsVisible] = useState(true) 
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 767)
+    const [isMediumScreen, setIsMediumScreen] = useState(window.innerWidth >= 768 && window.innerWidth < 1280)	
+    const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth >= 1280 && window.innerWidth < 1920)
+    const [isExtralargeScreen, setIsExtralargeScreen] = useState(window.innerWidth >= 1920)
+
 
     useEffect(() => {
       const handleResize = () => {
-        setIsLargeScreen(window.innerWidth > 1280)
+        const width = window.innerWidth
+        setIsSmallScreen(width <= 767)
+        setIsMediumScreen(width >= 768 && width < 1280)
+        setIsLargeScreen(width >= 1280 && width < 1920)
+        setIsExtralargeScreen(width >= 1920)
       }
+
       window.addEventListener('resize', handleResize)
-      return () => window.removeEventListener('resize', handleResize)
+      handleResize()
+      return () => {
+        window.removeEventListener('resize', handleResize)
+      }
     }, [])
 
     const scrollToSection = (sectionId) => {
-        var section = document.getElementById(sectionId);
+        var section = document.getElementById(sectionId)
         if (section) {
-          section.scrollIntoView({ block: "start", behavior: "smooth" });
+          section.scrollIntoView({ block: "start", behavior: "smooth" })
         } else {
-          console.log("No se encontró la sección");
+          console.log("No se encontró la sección")
         }
-      };
+      }
   
       const handleScroll = () => {
-        const position = window.scrollY;
+        const position = window.scrollY
         setScrollPosition(() => {
-          return position;
-        });
-      };
+          return position
+        })
+      }
 
       
 
       useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
+        window.addEventListener("scroll", handleScroll)
         return () => {
-          window.removeEventListener("scroll", handleScroll);
-        };
-      }, []);
+          window.removeEventListener("scroll", handleScroll)
+        }
+      }, [])
     
     useEffect(() => {
         if (!isConsoleLogged.current) {
@@ -64,28 +77,31 @@ const Home = () => {
                 
 
         Welcome to Bautista Calvo's Portfolio
-            `);
-            isConsoleLogged.current = true; // Evita que se imprima más de una vez
+            `)
+            isConsoleLogged.current = true // Evita que se imprima más de una vez
         }
-    }, []);
+    }, [])
 
 
     useEffect(() => {
       var firstSize = 1600
       var secondSize = 3000
-      if(window.innerWidth >= 768 && window.innerWidth < 1280){
+      if(isSmallScreen){
+        firstSize = 2500
+        secondSize = 3500
+      }else if(isMediumScreen){
         firstSize = 1900
         secondSize = 3500
-      } else if(window.innerWidth >= 1280 && window.innerWidth < 1920){
+      } else if(isLargeScreen){
         firstSize = 1300
         secondSize = 2500
       } 
       if (scrollPosition > firstSize && scrollPosition < secondSize && !isOpen) {
-        setIsVisible(false); 
+        setIsVisible(false) 
       } else {
-        setIsVisible(true); 
+        setIsVisible(true) 
       }
-    }, [scrollPosition, isOpen]);
+    }, [scrollPosition, isOpen, isSmallScreen, isMediumScreen, isLargeScreen])
   
 
     return (
@@ -100,23 +116,23 @@ const Home = () => {
           </motion.div>
             {
               isOpen && (
-                   <Menu isOpen={isOpen} setIsOpen={setIsOpen} scrollToSection={scrollToSection}/>
+                   <Menu isOpen={isOpen} setIsOpen={setIsOpen} scrollToSection={scrollToSection} t={t} />
               )
             }
             <div id="landing">
-                <LandingSection isLargeScreen={isLargeScreen}/>
+                <LandingSection isLargeScreen={isLargeScreen} t={t} />
             </div>
             <div id="infoSection">
-                <InfoSection />
+                <InfoSection  t={t} isSmallScreen={isSmallScreen} />
             </div>
             <div id="experincieSection">
-                <StackSection scrollPosition={scrollPosition} />
+                <StackSection scrollPosition={scrollPosition}  t={t} />
             </div>
             <div id="contactSection">
-                <ContactSection  />
+                <ContactSection   t={t} />
             </div>
             <div className="bg-turquoise">
-                <Footer scrollToSection={scrollToSection}  />
+                <Footer scrollToSection={scrollToSection}   />
             </div>
         </div>
     )

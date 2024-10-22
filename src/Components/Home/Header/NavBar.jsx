@@ -6,7 +6,9 @@ const NavBar = ({ isOpen, setIsOpen }) => {
 
 
     return (
-        <header className={` w-full h-1/12 top-0 p-6 overflow-hidden flex justify-between ${isOpen ? 'z-[60] ' : 'z-20'} `} >
+        <header className={` w-full h-1/12 top-0 py-6 px-6 overflow-hidden flex justify-between
+        xs-md:px-2
+        ${isOpen ? 'z-[60] ' : 'z-20'} `} >
           <section className=" relative  top-0 ">
             <motion.h1 
               className="text-4xl font-bold"
@@ -21,7 +23,7 @@ const NavBar = ({ isOpen, setIsOpen }) => {
           </section>
           <motion.div
            className="absolute top-14 right-12 h-5 p-2 m-2 z-[60]
-           xs:top-10 xs:right-8 
+           xs:top-10 xs:right-0 
            "
            initial={{ y: -100, opacity: 0 }}
            animate={{ y: 0, opacity: 1 }}

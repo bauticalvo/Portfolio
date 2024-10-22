@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
-import { useTranslation } from 'react-i18next';
 
-const LandingSection = ({ isLargeScreen}) => {
+const LandingSection = ({ isLargeScreen, t}) => {
   const { scrollY } = useScroll();
   const opacity = useTransform(scrollY, [0, 200], [1, 0]);
-  const { t } = useTranslation();
   const [currentDescription, setCurrentDescription] = useState(0);
 useEffect(() => {
   const timer = setInterval(() => {
