@@ -19,6 +19,14 @@
         "description2": "I am passionate about creating unique and engaging interfaces that showcase my skills and allow me to exceed my own expectations. Additionally, I enjoy the constant learning process and tackling new challenges that help me improve and adapt my skills to the ever-changing needs of web development.",
         "stack": "My Technical Stack",
         "others": "Others"
+    },
+    "contactsection": {
+        "title": "Let's Talk!",
+        "subtitle": "If you have any questions, ideas or simply want to say hi, let's get in touch!",
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "send": "Send"
     }
 }
   

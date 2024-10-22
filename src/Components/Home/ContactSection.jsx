@@ -2,7 +2,7 @@ import { useState } from "react";
 import emailjs from 'emailjs-com';
 import { motion } from 'framer-motion';
 
-const ContactSection = () => {
+const ContactSection = ({t}) => {
   const [formData, setFormData] = useState({
     user_name: '',
     user_email: '',
@@ -33,9 +33,11 @@ const ContactSection = () => {
 
   return (
     <div className="bg-turquoise text-turContrast font-playfair min-h-screen overflow-x-hidden flex items-center justify-center">
-      <main className="w-full max-w-2xl">
-        <h2 className="text-4xl font-bold mb-8 text-[#1c0f38] text-center">!Hablemos!</h2>
-        <p className="text-center text-[#1c0f38] mb-8 italic">Si tienes preguntas, ideas o simplemente quieres saludar, ¡adelante!</p>
+      <main className="w-full max-w-2xl 
+      xs:px-6
+      ">
+        <h2 className="text-4xl font-bold mb-8 text-[#1c0f38] text-center">{t('contactsection.title')}</h2>
+        <p className="text-center text-[#1c0f38] mb-8 italic">{t('contactsection.subtitle')}</p>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="">
             <section className="relative flex space-x-14">
@@ -46,7 +48,7 @@ const ContactSection = () => {
                     value={formData.user_name}
                     onChange={handleChange}
                     className="w-full px-0 py-2 text-[#1c0f38] bg-transparent border-b-2 border-[#1c0f38] focus:outline-none focus:border-white transition-colors placeholder-[#1c0f38] placeholder-opacity-75"
-                    placeholder="Nombre"
+                    placeholder={t('contactsection.name')}
                     required
                     whileFocus={{ scale: 1.04 }}
                 />
@@ -58,7 +60,7 @@ const ContactSection = () => {
                     value={formData.user_email}
                     onChange={handleChange}
                     className="w-full px-0 py-2 text-[#1c0f38] bg-transparent border-b-2 border-[#1c0f38] focus:outline-none focus:border-white transition-colors placeholder-[#1c0f38] placeholder-opacity-75"
-                    placeholder="Email"
+                    placeholder={t('contactsection.email')}
                     required
                     whileFocus={{ scale: 1.04 }}
                     />
@@ -72,7 +74,7 @@ const ContactSection = () => {
               value={formData.message}
               onChange={handleChange}
               className="w-full px-0 py-2 text-[#1c0f38] bg-transparent border-b-2 border-[#1c0f38] focus:outline-none focus:border-white transition-colors resize-none h-32 placeholder-[#1c0f38] placeholder-opacity-75"
-              placeholder="Mensaje"
+              placeholder={t('contactsection.message')}
               required
               whileFocus={{ scale: 1.02 }}
             ></motion.textarea>
@@ -81,7 +83,7 @@ const ContactSection = () => {
             type="submit"
             className="w-full py-3 px-4 bg-[#1c0f38] text-white rounded-md hover:bg-opacity-90 transition-all duration-300 ease-in-out transform hover:scale-105 mt-8"
           >
-            Enviar
+            {t('contactsection.send')}
           </button>
         </form>
       </main>

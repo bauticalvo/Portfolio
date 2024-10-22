@@ -19,6 +19,15 @@
       "description2": "Me apasiona crear interfaces unicas y atractivas que destaquen mis habilidades y me permitan superar mis expectativas.Además, disfruto del proceso de aprendizaje constante y de enfrentar nuevos desafíos que me permiten mejorar y adaptar mis habilidades a las necesidades cambiantes del desarrollo web.",
       "stack": "Mi Stack Tecnológico",
       "others": "Otros"
+    },
+    "contactsection":{
+      "title": "!Hablemos!",
+      "subtitle": "Si tienes preguntas, ideas o simplemente quieres saludar, ¡adelante!",
+      "name": "Nombre",
+      "email": "Email",
+      "message": "Mensaje",
+      "send": "Enviar"
+
     }
   }
   
