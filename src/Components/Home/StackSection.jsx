@@ -1,13 +1,15 @@
-import {  useRef } from "react";
+import {  useRef, useState } from "react";
 import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'framer-motion';
 import { MdArrowRightAlt } from "react-icons/md";
 
 const StackSection = ({scrollPosition}) => {
   const containerRef = useRef(null);
+  const [num,setNum] = useState(0)
   
   const { scrollYProgress } = useScroll();
   useMotionValueEvent(scrollYProgress, "change", (latest) => {
    // console.log(latest);
+   setNum(latest)
   })
 
  //RANGE FUNCTIONS
@@ -89,7 +91,7 @@ const StackSection = ({scrollPosition}) => {
             x: xSpring2,
             y: ySpring2,
           }}
-          > {scrollPosition} </motion.div>
+          > {num} </motion.div>
           <motion.div
           className="h-[30vh] w-[30vh] absolute bg-blue-500 border border-blue-500 top-0 z-20 rounded-md object-cover"
           style={{
@@ -98,7 +100,7 @@ const StackSection = ({scrollPosition}) => {
             y: ySpring3,
 
           } }
-          > {scrollPosition} </motion.div>
+          > {num} </motion.div>
           <motion.div
           className="h-[30vh] w-[30vh] absolute top-1 z-10 bg-green-500 border border-green-500  rounded-md object-cover"
           style={{

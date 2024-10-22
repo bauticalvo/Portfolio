@@ -17,7 +17,7 @@ const NavBar = ({ isOpen, setIsOpen }) => {
               transition={{ duration: 0.8 }}
             >
               <img src="/logoB6.png" alt="Logo de Bautista Calvo" className={`${isOpen ? 'hidden ' : ''}h-28 ml-8
-              xs:h-20 xs:ml-0 
+              xs:h-20 xs:ml-0 lg:h-24
               `} />
             </motion.h1>
           </section>
